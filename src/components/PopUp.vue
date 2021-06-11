@@ -155,7 +155,6 @@ body
         color: #808080
         margin-bottom: 24px
         line-height: 24px
-        padding-right: 20px
     &__payment-title
         font-weight: 500
         font-size: 14px
