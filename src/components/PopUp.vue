@@ -41,7 +41,7 @@
           </div>
           <div class="popup__payment-choose-btns">
             <div class="popup__payment-choose-controls-wrapper">
-              <div class="popup__payment-choose-question">Что уменьшаем ?</div>
+              <div class="popup__payment-choose-question">Что&nbsp;уменьшаем&nbsp;?</div>
               <div class="popup__payment-choose-controls">
                 <button class="popup__payment-choose-btn popup__payment-choose-btn--active">Платеж</button>
                 <button class="popup__payment-choose-btn">Срок</button>
@@ -177,6 +177,7 @@ body
         align-items: center
         justify-content: space-between
         margin-right: 55px
+        gap: 1rem
     &__payment-choose-question
         font-weight: 500
         font-size: 14px
@@ -252,19 +253,27 @@ body
           
             padding: 20px
             width: 98vw
-            &.popup__title
-
+            
+            &__text
+                margin-bottom: 12px
+            &__payment-calculate-btn
+                margin-bottom: 12px
+            &__title
                 font-size: 22px
             &__close
                 top: 0
+            &__total-title
+                margin-bottom: 0.5rem
             &__payment-choose-btns
                 width: 100%
                 margin-right: auto
             &__payment-choose-question
-                margin-bottom: 1rem
+                margin-bottom: 0.5rem
             &__payment-choose-controls-wrapper
               display: block
             &__payment-input-wrapper
-                margin-top: 22px
+                margin-top: 0px
+            &__total
+                margin-bottom: 1rem
 
 </style>
