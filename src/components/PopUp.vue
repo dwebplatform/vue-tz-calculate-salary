@@ -1,5 +1,5 @@
 <template>
-  <div class="popup" :class="{'showed':isShow}">
+  <div class="popup" v-show="isShow">
       <div class="popup__top">
         <div class="popup__title">Налоговый вычет</div>
         <button class="popup__close" @click="closePopUp"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -134,7 +134,6 @@ body
     top: 2vh
     left: 50%
     transform: translate(-50%,0)
-    display: none
     &.showed
         display: block
     &__top
@@ -157,8 +156,6 @@ body
         margin-bottom: 24px
         line-height: 24px
         padding-right: 20px
-    &__payment
-        margin-bottom: 40px
     &__payment-title
         font-weight: 500
         font-size: 14px

@@ -1,6 +1,6 @@
 <template>
 <main class="main">
-  <button class="show-popup" @click="togglePopup">Show </button>
+  <button v-show="!isShow" class="show-popup" @click="togglePopup">Налоговый вычет</button>
   <PopUp :isShow="isShow" @handleClose="closePopup"/>
 </main>
 
@@ -45,15 +45,22 @@ body
     display: flex 
     justify-content: center 
     align-items: center
+    background: #E9413E
 .show-popup
-    width: 20%
-    height: 40px
     cursor: pointer
-    margin: 20 50%
-    border: none
-    border-radius: 50px
-    background: #EA0029
+    background: none
+    border: 1px solid #fff
+    box-sizing: border-box
+    border-radius: 6px
     color: #fff
+    padding: 16px 32px
+    font-weight: 500
+    font-size: 16px
+    line-height: 24px
+    transition: all .2s linear
+    &:hover
+        color: #000
+        background: #fff
 .popup-wrapper
     position: relative
 </style>
