@@ -20,6 +20,7 @@
         <div class="popup__payment-input-wrapper">
           <input class="popup__payment-input" v-model="salary" placeholder="Введите данные" />
         </div>
+        <div class="error">{{error}}</div>
         <button class="popup__payment-calculate-btn" @click="handleCalculate">Рассчитать</button>
         <div class="popup__total">
           <div class="popup__total-title">Итого можете внести в качестве досрочных:</div>
@@ -65,15 +66,20 @@ export default {
   data(){
     return {
       salary:'',
+      error:'',
       calculatedTable:[]
     };
   },
   methods:{
     handleCalculate(){
+      if(isNaN(this.salary)){
+        this.error = 'Вы ввели не валидное число';
+        return;
+      }
       let priceForYear = ( parseInt(this.salary)*12)*0.13;
+
       let amountOfYears = Math.floor(260_000/priceForYear); 
       let remaindPrice = 260_000 % priceForYear;
-      console.log(amountOfYears,remaindPrice);
       // создаем массив из кнопок
       const calculatedRes = [];
       let totalYears = remaindPrice>0?amountOfYears+1:amountOfYears;
@@ -116,7 +122,9 @@ body
     display: flex
     justify-content: center
     align-items: center
-  
+.error
+    color: red
+    font-size: 14px
 .popup
     max-width: 453px
     background-color: #fff
@@ -221,14 +229,20 @@ body
         margin-bottom: 1rem
     &__total-prices
         width: 100% 
+    &__total-price
+        width: 100%
+        position: relative
+        &::after
+            content: ''
+            display: block
+            width: 100%
+            height: 2px
+            top: 30px
+            position: absolute
+            background: #eeee  
     &__total-price-wrapper
         width: 100%
-        &::after
-          content: ''
-          display: block
-          width: 100%
-          height: 2px
-          background: #eeee
+  
     &__total-price
         display: flex
         font-size: 14px
