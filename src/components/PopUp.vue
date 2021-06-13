@@ -28,7 +28,7 @@
           <div v-for="calculatedTableEl in calculatedTable" :key="calculatedTableEl.index"  class="popup__total-price">
               <label class="popup__total-price-checkbox">
                 <input class="popup__total-price-checkbox-input" type="checkbox" v-model="calculatedTableEl.checked" /> 
-                <CheckBox v-if="calculatedTableEl.checked"/>
+                <CheckBox v-show="calculatedTableEl.checked"/>
               </label>
               <div class="popup__total-price-wrapper">
                 <div class="popup__total-price">
@@ -207,17 +207,17 @@ body
     &__total-price-checkbox
         cursor: pointer
         border: 1px solid #DFE3E6
-        width: 22px 
-        height: 20px
+        width: 21px 
+        height: 21px
         margin-right: 11px
         border-radius: 6px
         display: flex
         svg
-            position: relative
-            top: -1px
-            left: 0px
-            flex: 1
-            width: 20px
+            position: absolute
+            top: 0px
+            left: -1px
+            width: 22px
+            height: 22px
     &__total-price-checkbox-input
         position: absolute
         left: -9999px
